@@ -1,24 +1,67 @@
-import logo from './logo.svg';
 import './App.css';
+import Loading from './Loading';
+import Form from './Form';
+import Modal from './Modal';
+import { useGlobalContext } from './context';
 
 function App() {
+  const {
+    waiting,
+    loading,
+    questions,
+    index,
+    correct,
+    nextQuestion,
+    checkAnswer,
+    shuffleAnswers,
+    modal,
+  } = useGlobalContext();
+
+  if (waiting) {
+    return <Form />;
+  }
+
+  if (loading) {
+    return <Loading />;
+  }
+  const { question, correct_answer, incorrect_answers } = questions[index];
+
+  const answers = shuffleAnswers(incorrect_answers, correct_answer);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <Modal />
+      <section className="quiz">
+        {/* <p className="correct-answers">
+          correct answers: {correct} / {index}
+        </p> */}
+        {modal ? (
+          <p className="correct-answers">correct answers: {correct}</p>
+        ) : (
+          <p className="correct-answers">
+            correct answers: {correct} / {index}
+          </p>
+        )}
+        <article className="container">
+          <h2 dangerouslySetInnerHTML={{ __html: question }} />
+          <div className="btn-container">
+            {answers.map((answer, index) => {
+              return (
+                <button
+                  key={index}
+                  className="answer-btn"
+                  onClick={() => checkAnswer(correct_answer === answer)}
+                  dangerouslySetInnerHTML={{ __html: answer }}
+                />
+              );
+            })}
+          </div>
+        </article>
+        <button className="next-question" onClick={nextQuestion}>
+          next question
+        </button>
+      </section>
+    </main>
   );
 }
 
