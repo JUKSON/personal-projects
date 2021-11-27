@@ -15,11 +15,6 @@ const QuizProvider = ({ children }) => {
   const [index, setIndex] = useState(0);
   const [correct, setCorrect] = useState(0);
   const [modal, setModal] = useState(false);
-  // const [form, setForm] = useState({
-  //   amount: 1,
-  //   category: '9',
-  //   difficulty: 'easy',
-  // });
   const [form, setForm] = useState({
     amount: 1,
     category: '9',

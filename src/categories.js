@@ -3,11 +3,11 @@ const categories = [
   { id: 10, name: 'Entertainment: Books' },
   { id: 11, name: 'Entertainment: Film' },
   { id: 12, name: 'Entertainment: Music' },
-  { id: 13, name: 'Entertainment: Musicals &amp; Theatres' },
+  { id: 13, name: 'Entertainment: Musicals & Theatres' },
   { id: 14, name: 'Entertainment: Television' },
   { id: 15, name: 'Entertainment: Video Games' },
   { id: 16, name: 'Entertainment: Board Games' },
-  { id: 17, name: 'Science &amp; Nature' },
+  { id: 17, name: 'Science & Nature' },
   { id: 18, name: 'Science: Computers' },
   { id: 19, name: 'Science: Mathematics' },
   { id: 20, name: 'Mythology' },
@@ -21,8 +21,8 @@ const categories = [
   { id: 28, name: 'Vehicles' },
   { id: 29, name: 'Entertainment: Comics' },
   { id: 30, name: 'Science: Gadgets' },
-  { id: 31, name: 'Entertainment: Japanese Anime &amp; Manga' },
-  { id: 32, name: 'Entertainment: Cartoon &amp; Animations' },
+  { id: 31, name: 'Entertainment: Japanese Anime & Manga' },
+  { id: 32, name: 'Entertainment: Cartoon & Animations' },
 ];
 
 export default categories;

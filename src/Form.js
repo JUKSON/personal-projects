@@ -33,11 +33,9 @@ const Form = () => {
             >
               {categories.map((category, index) => {
                 return (
-                  <option
-                    key={index}
-                    value={category.id}
-                    dangerouslySetInnerHTML={{ __html: category.name }}
-                  />
+                  <option key={index} value={category.id}>
+                    {category.name}
+                  </option>
                 );
               })}
             </select>
@@ -51,9 +49,9 @@ const Form = () => {
               value={form.difficulty}
               onChange={handleChange}
             >
-              <option value="easy">easy</option>
-              <option value="medium">medium</option>
-              <option value="hard">hard</option>
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
             </select>
           </div>
           <div className="form-control">
@@ -65,9 +63,9 @@ const Form = () => {
               value={form.type}
               onChange={handleChange}
             >
-              <option value="any">any</option>
-              <option value="multiple">multiple</option>
-              <option value="boolean">true / false</option>
+              <option value="any">Any</option>
+              <option value="multiple">Multiple</option>
+              <option value="boolean">True / False</option>
             </select>
           </div>
           {error && (

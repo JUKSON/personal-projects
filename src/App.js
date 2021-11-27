@@ -32,9 +32,6 @@ function App() {
     <main>
       <Modal />
       <section className="quiz">
-        {/* <p className="correct-answers">
-          correct answers: {correct} / {index}
-        </p> */}
         {modal ? (
           <p className="correct-answers">correct answers: {correct}</p>
         ) : (
