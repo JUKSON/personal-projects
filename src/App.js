@@ -1,4 +1,3 @@
-import './App.css';
 import Loading from './Loading';
 import Form from './Form';
 import Modal from './Modal';
@@ -15,6 +14,7 @@ function App() {
     checkAnswer,
     shuffleAnswers,
     modal,
+    exitQuestion,
   } = useGlobalContext();
 
   if (waiting) {
@@ -32,6 +32,9 @@ function App() {
     <main>
       <Modal />
       <section className="quiz">
+        <h4 className="exit-question" onClick={() => exitQuestion()}>
+          Exit
+        </h4>
         {modal ? (
           <p className="correct-answers">correct answers: {correct}</p>
         ) : (

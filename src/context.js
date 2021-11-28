@@ -1,7 +1,6 @@
 import React from 'react';
-import { useContext, useState, useEffect } from 'react';
+import { useContext, useState } from 'react';
 import axios from 'axios';
-import categories from './categories';
 
 const API_URL = 'https://opentdb.com/api.php?';
 
@@ -60,6 +59,12 @@ const QuizProvider = ({ children }) => {
     nextQuestion();
   };
 
+  const exitQuestion = () => {
+    setWaiting(true);
+    setCorrect(0);
+    setIndex(0);
+  };
+
   const openModal = () => {
     setModal(true);
   };
@@ -92,7 +97,6 @@ const QuizProvider = ({ children }) => {
     } else {
       url = `${API_URL}amount=${amount}&category=${category}&difficulty=${difficulty}`;
     }
-    // const url = `${API_URL}amount=${amount}&category=${category}&difficulty=${difficulty}&type=${type}`;
     fetchData(url);
   };
 
@@ -122,6 +126,7 @@ const QuizProvider = ({ children }) => {
         handleSubmit,
         handleChange,
         shuffleAnswers,
+        exitQuestion,
       }}
     >
       {children}
